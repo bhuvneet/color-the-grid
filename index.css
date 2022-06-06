@@ -1,5 +1,16 @@
+body
+{
+    display: grid;
+}
+
 #grids 
 {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(16, auto);
 }
+
+.gridRow, .gridCells
+{
+    border: 1px solid navy;
+}
+
