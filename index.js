@@ -1,12 +1,10 @@
 // container div to hold all rows and column divs
 let container   = document.getElementById("container");
-let rows        = document.querySelectorAll("gridRow");
-let cells       = document.querySelectorAll("gridCells");
 
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
-    let numOfRows = 20;
+    let numOfRows = 6;
     createGrid(numOfRows);
 }
 
@@ -44,7 +42,7 @@ function newGrid ()
     if (userValue > 100)
     {
         let gridText = document.getElementById("newGridText");
-        gridText.textContent = "Enter a new number for rows, less than 100: ";
+        gridText.textContent = "Enter a new number for rows, less than 100:";
         let clear = document.getElementById("userCreatedGrid").value ='';
     }
     // create grid for the number of rows entered by user
