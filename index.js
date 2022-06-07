@@ -7,12 +7,12 @@ let cells       = document.querySelectorAll("gridCells");
 function grid16by16 ()
 {
     // 256 cells in total
-    let numOfRows = 10;
-    createRows(numOfRows);
+    let numOfRows = 20;
+    createGrid(numOfRows);
 }
 
 // get userInput to create rows and column grid less than 100.
-function createRows (numOfRows)
+function createGrid (numOfRows)
 {
     for(let i = 0; i < numOfRows; i++)
     {   
