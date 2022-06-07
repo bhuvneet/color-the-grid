@@ -6,7 +6,6 @@ let cells       = document.querySelectorAll("gridCells");
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
-    // 256 cells in total
     let numOfRows = 20;
     createGrid(numOfRows);
 }
@@ -32,22 +31,10 @@ function createGrid (numOfRows)
     
     let cellPerColumn = numOfRows - 1;
 
-    //createColumns(numOfRows);
     document.getElementById("container").style.gridTemplate = "repeat(" + cellPerColumn + ", 1fr) / repeat(" + numOfRows + ", 1fr)";
-    //document.getElementById("container").style.gridTemplateColumns = "repeat(" + cellPerColumn + ", 1fr)";
-}
-/*
-function createColumns (numOfRows)
-{
-    // append cells to the rows
-    for(let j = 0; j < (numOfRows*numOfRows); j++)
-    {
-        let cell = document.createElement("div");
-        cell.id = "gridCells";
-        container.appendChild(cell);
-    }
 }
 
+// create a new grid from the valid value entered by user.
 function newGrid ()
 {
     let userValue = document.getElementById("userCreatedGrid").value;
@@ -67,13 +54,13 @@ function newGrid ()
         removePrevGrid();
 
         // invoke rowsColumns function to create new grid
-        createRows(userValue);
+        createGrid(userValue);
     }
 }
 
 function removePrevGrid ()
 {
-    const prevGRid = document.getElementById("grids");
+    const prevGRid = document.getElementById("container");
     
     while (prevGRid.hasChildNodes())
     {
@@ -82,6 +69,7 @@ function removePrevGrid ()
 
     return;
 }
-*/
+
+
 grid16by16();
 
