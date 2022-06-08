@@ -1,6 +1,18 @@
 // container div to hold all rows and column divs
 let container   = document.getElementById("container");
 
+container.addEventListener("mousemove", function(e)
+{
+    function randomColor()
+    {
+        return Math.floor(Math.random()*256);
+    }
+    x = e.offsetX;
+    y = e.offsetY;
+    //container.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 10)";
+    container.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+});
+
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
@@ -42,7 +54,7 @@ function newGrid ()
     if (userValue > 100)
     {
         let gridText = document.getElementById("newGridText");
-        gridText.textContent = "Enter a new number for rows, less than 100:";
+        gridText.textContent = "Enter a new number for the grid, less than 100:";
         let clear = document.getElementById("userCreatedGrid").value ='';
     }
     // create grid for the number of rows entered by user
@@ -67,7 +79,6 @@ function removePrevGrid ()
 
     return;
 }
-
 
 grid16by16();
 
