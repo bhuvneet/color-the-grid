@@ -4,8 +4,9 @@ let container   = document.getElementById("container");
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
-    let numOfRows = 6;
+    let numOfRows = 100;
     createGrid(numOfRows);
+    gridSize(numOfRows);
 }
 
 // get userInput to create rows and column grid less than 100.
@@ -53,6 +54,7 @@ function newGrid ()
         // remove colored grid and resize to previously valid sized grid or 16x16
         removePrevGrid();
         createGrid(prevValidVal);
+        gridSize(prevValidVal);
     }
     // create grid for the number of rows entered by user
     else
@@ -63,7 +65,15 @@ function newGrid ()
 
         // invoke rowsColumns function to create new grid
         createGrid(userValue);
+        gridSize(userValue);
     }
+}
+
+function gridSize (s)
+{
+    // update size of grid
+    let size = document.getElementById("size");
+    size.innerText = "Grid size: " + s + ' x ' + s;
 }
 
 function colorWhenHovered (e)
@@ -74,7 +84,7 @@ function colorWhenHovered (e)
     }
     x = e.offsetX;
     y = e.offsetY;
-    //container.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 10)";
+    
     this.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 }
 
