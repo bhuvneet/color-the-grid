@@ -1,17 +1,9 @@
 // container div to hold all rows and column divs
 let container   = document.getElementById("container");
 
-container.addEventListener("mousemove", function(e)
-{
-    function randomColor()
-    {
-        return Math.floor(Math.random()*256);
-    }
-    x = e.offsetX;
-    y = e.offsetY;
-    //container.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 10)";
-    container.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
-});
+
+
+
 
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
@@ -27,7 +19,8 @@ function createGrid (numOfRows)
     {   
         // create rows
         let row = document.createElement("div");
-        row.id = "gridRow";  
+        row.id = "gridRow";
+        row.addEventListener("mousemove", colorWhenHovered);
         container.appendChild(row);
     }
     
@@ -36,6 +29,7 @@ function createGrid (numOfRows)
     {
         let cell = document.createElement("div");
         cell.id = "gridCells";
+        cell.addEventListener("mousemove", colorWhenHovered);
         container.appendChild(cell);
     }
     
@@ -66,6 +60,18 @@ function newGrid ()
         // invoke rowsColumns function to create new grid
         createGrid(userValue);
     }
+}
+
+function colorWhenHovered (e)
+{
+    function randomColor()
+    {
+        return Math.floor(Math.random()*256);
+    }
+    x = e.offsetX;
+    y = e.offsetY;
+    //container.style.backgroundColor = "rgb("+e.offsetX+", "+e.offsetY+", 10)";
+    this.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 }
 
 function removePrevGrid ()
