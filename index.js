@@ -1,10 +1,6 @@
 // container div to hold all rows and column divs
 let container   = document.getElementById("container");
 
-
-
-
-
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
@@ -44,16 +40,24 @@ function newGrid ()
     let userValue = document.getElementById("userCreatedGrid").value;
     console.log(userValue);
 
+    let prevValidVal = 16;
+
     // prompt user to enter number of rows less than 100
     if (userValue > 100)
     {
         let gridText = document.getElementById("newGridText");
-        gridText.textContent = "Enter a new number for the grid, less than 100:";
+        gridText.textContent = "Enter grid size less (> 100):";
+        container.style.backgroundColor = "aliceblue";
         let clear = document.getElementById("userCreatedGrid").value ='';
+
+        // remove colored grid and resize to previously valid sized grid or 16x16
+        removePrevGrid();
+        createGrid(prevValidVal);
     }
     // create grid for the number of rows entered by user
     else
     {
+        let prevValidVal = userValue;
         // remove divs inside the grid
         removePrevGrid();
 
