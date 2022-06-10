@@ -4,7 +4,7 @@ let container   = document.getElementById("container");
 // create the defaul 16x16 grid by invoking rowsColumns function.
 function grid16by16 ()
 {
-    let numOfRows = 100;
+    let numOfRows = 16;
     createGrid(numOfRows);
     gridSize(numOfRows);
 }
